@@ -35,4 +35,4 @@ def handle_login_data():
 
 if __name__ == "__main__":
     #app.run(debug=True, port=8080)
-    app.run(host='192.168.0.47', port=80)
+    app.run(host='192.168.0.47', port=443)
