@@ -20,7 +20,7 @@ const MyComponent = () => {
     formData.append('file', selectedFile); // Add file to FormData
 
     try {
-      const response = await axios.post('http://76.167.195.153:80/data', formData, {
+      const response = await axios.post('http://76.167.195.153:443/data', formData, {
         headers: {
           'Content-Type': 'multipart/form-data', // Set content type for file uploads
         },

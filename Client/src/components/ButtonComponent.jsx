@@ -6,7 +6,7 @@ function ButtonComponent() {
 
     const handleClick = async () => {
         try {
-            const response = await axios.post('http://76.167.195.153:80/data', {
+            const response = await axios.post('http://76.167.195.153:443/data', {
                 data: dataToSend,  // Send the data in the request body
             });
             console.log(response.data);  // Log response for debugging

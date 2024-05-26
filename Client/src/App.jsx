@@ -14,7 +14,7 @@ function App() {
   const [array, setArray] = useState([]);
 
   const fetchAPI = async () => {
-    const response = await axios.get("http://76.167.195.153:80/api/users")
+    const response = await axios.get("http://76.167.195.153:443/api/users")
     console.log(response.data.users);
     setArray(response.data.users);
   };
