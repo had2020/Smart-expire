@@ -1,42 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
-function ImageUpload() {
+const MyComponent = () => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null);
 
-  useEffect(() => {
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+
     if (!selectedFile) {
-      setPreviewUrl(null);
+      alert('Please select a file to upload.');
       return;
     }
 
-    const objectUrl = URL.createObjectURL(selectedFile);
-    setPreviewUrl(objectUrl);
+    const formData = new FormData();
+    formData.append('file', selectedFile); // Add file to FormData
 
-    // Cleanup function to revoke the object URL when the component unmounts
-    return () => URL.revokeObjectURL(objectUrl);
-  }, [selectedFile]);
+    try {
+      const response = await axios.post('http://76.167.195.153:80/data', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // Set content type for file uploads
+        },
+      });
+      console.log('File upload response:', response);
 
-  const handleFileChange = (event) => {
-    const newFile = event.target.files[0];
-    setSelectedFile(newFile);
-  };
+      // Handle successful upload (e.g., display success message)
+      alert('File uploaded successfully!');
+    } catch (error) {
+      console.error('Error uploading file:', error);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Implement your logic to upload the selected file to your server
-    console.log('Uploading file:', selectedFile);
+      // Handle upload errors (e.g., display error message)
+      alert('Error uploading file. Please try again.');
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="file" accept="image/*" onChange={handleFileChange} />
-      {previewUrl && (
-        <img src={previewUrl} alt="Preview" />
-      )}
-      <button type="submit">Send Image</button>
+      <input type="file" onChange={handleFileChange} />
+      <button type="submit">Upload File</button>
     </form>
   );
-}
+};
 
-export default ImageUpload;
+export default MyComponent;
