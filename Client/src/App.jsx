@@ -7,9 +7,12 @@ import axios from 'axios';
 // components
 import ButtonComponent from './components/ButtonComponent';
 import ImageUpload from './components/image_upload';
+import FlaskAddress from './components/flaskip';
 
 
 function App() {
+  const flaskurl = FlaskAddress.address
+  console.log("flask url = ", flaskurl)
   const [count, setCount] = useState(0);
   const [array, setArray] = useState([]);
 
