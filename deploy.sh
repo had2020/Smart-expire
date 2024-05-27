@@ -2,7 +2,7 @@
 # Replace with actual server details and command
 SERVER_ADDRESS="76.167.195.153"
 USERNAME="hadrian"
-REMOTE_COMMAND="cd /d E:pull_origin.bat" 
+REMOTE_COMMAND="cd /d E:\Smart_Expire\Smart-expire" 
 REMOTE_COMMAND1="pull_origin.bat" 
 #TODO add run server and on desktop server for frontend
 
