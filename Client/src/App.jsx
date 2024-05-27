@@ -5,19 +5,17 @@ import './App.css'
 import axios from 'axios';
 
 // components
+import FlaskAddress from './components/flaskip';
 import ButtonComponent from './components/ButtonComponent';
 import ImageUpload from './components/image_upload';
-import FlaskAddress from './components/flaskip';
-
 
 function App() {
-  const flaskurl = FlaskAddress.address
-  console.log("flask url = ", flaskurl)
+  const flaskurl = FlaskAddress();
   const [count, setCount] = useState(0);
   const [array, setArray] = useState([]);
 
   const fetchAPI = async () => {
-    const response = await axios.get("http://76.167.195.153:443/api/users")
+    const response = await axios.get(flaskurl + '/data')
     console.log(response.data.users);
     setArray(response.data.users);
   };
@@ -45,11 +43,11 @@ function App() {
         Welcome to Hadrian's site!
       </p>
       <div>
-        <ButtonComponent />
+        <ButtonComponent address_var={flaskurl} />
       </div>
       <div>
         <h1>Send an Image</h1>
-        <ImageUpload />
+        <ImageUpload address_var={flaskurl} />
       </div>
     </>
   )

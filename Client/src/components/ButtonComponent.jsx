@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';  // Import axios for HTTP requests
 
-function ButtonComponent() {
+function ButtonComponent({ address_var }) {
     const [dataToSend, setDataToSend] = useState('');  // State for data
 
     const handleClick = async () => {
         try {
-            const response = await axios.post('http://76.167.195.153:443/data', {
+            const response = await axios.post({ address_var } + '/data', {
                 data: dataToSend,  // Send the data in the request body
             });
             console.log(response.data);  // Log response for debugging

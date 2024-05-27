@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const MyComponent = () => {
+const ImageUpload = ({ address_var }) => {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -20,7 +20,7 @@ const MyComponent = () => {
     formData.append('file', selectedFile); // Add file to FormData
 
     try {
-      const response = await axios.post('http://76.167.195.153:443/data', formData, {
+      const response = await axios.post({address_var} + '/data', formData, {
         headers: {
           'Content-Type': 'multipart/form-data', // Set content type for file uploads
         },
@@ -45,4 +45,4 @@ const MyComponent = () => {
   );
 };
 
-export default MyComponent;
+export default ImageUpload;
