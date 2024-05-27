@@ -1,4 +1,4 @@
-# TODO update readme
+# TODO update readme to include full up to date infomation for running the whole app
 How to run
 
 - cd Client
