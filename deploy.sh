@@ -2,7 +2,7 @@
 # Replace with actual server details and command
 SERVER_ADDRESS="76.167.195.153"
 USERNAME="hadrian"
-REMOTE_COMMAND="gh repo sync"  # Example command
+REMOTE_COMMAND="s"  # Example command
 
 # Establish connection (assuming password authentication)
 echo Enter Password for ssh server: 
