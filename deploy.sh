@@ -4,6 +4,7 @@ SERVER_ADDRESS="76.167.195.153"
 USERNAME="hadrian"
 REMOTE_COMMAND="cd /d E:pull_origin.bat" 
 REMOTE_COMMAND1="pull_origin.bat" 
+#TODO add run server and on desktop server for frontend
 
 # Establish connection (assuming password authentication)
 echo Enter Password for ssh server: 
