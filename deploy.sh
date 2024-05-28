@@ -1,8 +1,8 @@
 # Replace with actual server details
-SERVER_ADDRESS=""
+SERVER_ADDRESS="76.167.195.153"
 USERNAME="hadrian"
-REMOTE_COMMAND1="cd /d E:\Smart_Expire\Smart-expire"  # Assuming the script is there
-REMOTE_COMMAND2="pull_origin.bat" 
+REMOTE_COMMAND1="cd github_repos\Smart-expire"  # Assuming the script is there
+REMOTE_COMMAND2="gh repo sync"
 
 # Establish connection (assuming password authentication)
 echo Enter Password for ssh server: 
