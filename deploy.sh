@@ -1,8 +1,8 @@
 # Replace with actual server details
-SERVER_ADDRESS="76.167.195.153"
+SERVER_ADDRESS=""
 USERNAME="hadrian"
 REMOTE_COMMAND1="cd /d E:\Smart_Expire\Smart-expire"  # Assuming the script is there
-REMOTE_COMMAND2="./pull_origin.sh"  # Assuming the converted script is named pull_origin.sh
+REMOTE_COMMAND2="pull_origin.bat" 
 
 # Establish connection (assuming password authentication)
 echo Enter Password for ssh server: 
