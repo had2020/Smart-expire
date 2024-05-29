@@ -5,4 +5,6 @@ python3 main.py
 # also add python virtual envirment
 
 # source my_env/bin/activate once in server
-#test
+
+#Smart-expire_env
+#source Smart-expire_env/bin/activate

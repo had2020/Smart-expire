@@ -3,6 +3,7 @@ SERVER_ADDRESS="76.167.195.153"
 USERNAME="hadrian"
 REMOTE_COMMAND1="cd github_repos\Smart-expire"  # Assuming the script is there
 REMOTE_COMMAND2="gh repo sync"
+# npm install # to fix bug
 
 # Establish connection (assuming password authentication)
 echo Enter Password for ssh server: 
@@ -17,5 +18,3 @@ if [ $? -eq 0 ]; then
 else
   echo "Error: Remote commands failed."
 fi
-
-#test
