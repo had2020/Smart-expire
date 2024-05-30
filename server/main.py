@@ -34,7 +34,7 @@ def handle_login_data():
     return jsonify({'message': 'Data received successfully!'})
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8080) # local-debug only
-    #app.run(host='192.168.0.49', port=443) # needs root acess
+    #app.run(debug=True, port=8080) # local-debug only
+    app.run(host='192.168.0.49', port=443) # needs root acess
     #app.run(host='76.167.195.153', port=443) #failed
     #app.run(host='0.0.0.0', port=5000)  # Bind to all interfaces on port 5000
