@@ -5,13 +5,21 @@ function ButtonComponent({ address_var }) {
     const [dataToSend, setDataToSend] = useState('');  // State for data
 
     const handleClick = async () => {
+        if (!address_var) {
+            console.error('Address variable is null or undefined');
+            return;
+        }
         try {
-            const response = await axios.post({ address_var } + '/data', {
-                data: dataToSend,  // Send the data in the request body
+            const response = await axios.post(`${address_var}/api/data`, {
+                data: dataToSend,
             });
-            console.log(response.data);  // Log response for debugging
+            console.log(response.data);
         } catch (error) {
             console.error('Error sending data:', error);
+            console.log(`${address_var}/api/data`);
+            if (error.response) {
+                console.error('Response:', error.response.data);
+            }
         }
     };
 

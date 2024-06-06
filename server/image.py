@@ -2,13 +2,18 @@
 from openai import OpenAI
 import base64
 import requests
+import os
 
-def send_image():
+import main # Import main.py for variable reference
+
+def send_image(image_path):
   # Point to the local server
   client = OpenAI(base_url="http://localhost:8084/v1", api_key="lm-studio")
 
   # Ask the user for a path on the filesystem:
-  path = input("Enter a local filepath to an image: ")
+  #path = input("Enter a local filepath to an image: ") # Manual input
+  path = image_path
+  print(path)
 
   # Read the image and encode it to base64:
   base64_image = ""
@@ -46,3 +51,4 @@ def send_image():
   for chunk in completion:
     if chunk.choices[0].delta.content:
       print(chunk.choices[0].delta.content, end="", flush=True)
+      main.ai_response += chunk.choices[0].delta.content

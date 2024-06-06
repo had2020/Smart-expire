@@ -7,7 +7,7 @@ import axios from 'axios';
 // components
 import FlaskAddress from './components/flaskip';
 import ButtonComponent from './components/ButtonComponent';
-import ImageUpload from './components/image_upload';
+import Upload_button from './components/upload_button';
 
 function App() {
   const flaskurl = FlaskAddress();
@@ -15,8 +15,7 @@ function App() {
   const [array, setArray] = useState([]);
 
   const fetchAPI = async () => {
-    const response = await axios.get(flaskurl + '/data')
-    console.log(response.data.users);
+    const response = await axios.get(flaskurl + '/api/users')
     setArray(response.data.users);
   };
 
@@ -47,7 +46,7 @@ function App() {
       </div>
       <div>
         <h1>Send an Image</h1>
-        <ImageUpload address_var={flaskurl} />
+        <Upload_button address_var={flaskurl} />
       </div>
     </>
   )
