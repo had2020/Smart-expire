@@ -3,17 +3,19 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-// components
-import FlaskAddress from './components/flaskip';
-import ButtonComponent from './components/ButtonComponent';
-import Upload_button from './components/upload_button';
+// pages
+import Home from './pages/Home';
+//import Not_Found from './pages/Not_Found';
+//import ai_tool from './pages/ai_tool';
 
 function App() {
-  const flaskurl = FlaskAddress();
+  //const flaskurl = FlaskAddress();
   const [count, setCount] = useState(0);
   const [array, setArray] = useState([]);
-
+  
+  // get users function 
   const fetchAPI = async () => {
     const response = await axios.get(flaskurl + '/api/users')
     setArray(response.data.users);
@@ -25,31 +27,13 @@ function App() {
 
   return (
     <>
-      <h1>Smart Expire</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          {array.map((user, index) => (
-            <div key ={index}>
-              <span>{user}</span><br></br>
-            </div>
-            ))}
-        </p>
-      </div>
-      <p className="feel-at-home">
-        Welcome to Hadrian's site!
-      </p>
-      <div>
-        <ButtonComponent address_var={flaskurl} />
-      </div>
-      <div>
-        <h1>Send an Image</h1>
-        <Upload_button address_var={flaskurl} />
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Router>
     </>
   )
 }
 
-export default App
+export default App;
