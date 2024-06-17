@@ -6,26 +6,20 @@ import { Link } from 'react-router-dom';
 import FlaskAddress from '../components/flaskip';
 import ButtonComponent from '../components/ButtonComponent';
 import Upload_button from '../components/upload_button';
+import Nav_bar from '../components/Nav_bar';
 
 const Home = () => {
   const flaskurl = FlaskAddress(); // adding global address for flask
   const [count, setCount] = useState(0);
-  const array = ["User1", "User2", "User3"]; // Example array
 
   return (
     <>
+      <Nav_bar></Nav_bar>
       <h1>Smart Expire</h1>
       <div className="card">
         <button onClick={() => setCount(count + 1)}>
           count is {count}
         </button>
-        <p>
-          {array.map((user, index) => (
-            <div key={index}>
-              <span>{user}</span><br />
-            </div>
-          ))}
-        </p>
       </div>
       <p className="feel-at-home">
         Welcome to Hadrian's site!
@@ -36,9 +30,6 @@ const Home = () => {
       <div>
         <h1>Send an Image</h1>
         <Upload_button address_var={flaskurl} />
-      </div>
-      <div>
-        <Link to="/response">Go to Response Page</Link>
       </div>
     </>
   );

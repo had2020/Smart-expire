@@ -7,29 +7,24 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // pages
 import Home from './pages/Home';
-//import Not_Found from './pages/Not_Found';
-//import ai_tool from './pages/ai_tool';
+import Not_Found from './pages/Not_Found';
+import Tool from './pages/Tool';
+import Login from './pages/Login';
 
 function App() {
-  //const flaskurl = FlaskAddress();
   const [count, setCount] = useState(0);
   const [array, setArray] = useState([]);
-  
-  // get users function 
-  const fetchAPI = async () => {
-    const response = await axios.get(flaskurl + '/api/users')
-    setArray(response.data.users);
-  };
-
-  useEffect(() => {
-    fetchAPI()
-  }, [])
 
   return (
     <>
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/tool" element={<Tool />} />
+          <Route path="/account" element={<Login />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Login />} />
+          <Route path="/Not_Found" element={<Not_Found />} />
         </Routes>
       </Router>
     </>

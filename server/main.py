@@ -1,11 +1,10 @@
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from image import send_image
+from image import ai_response
 import os
 from werkzeug.utils import secure_filename
 import tempfile
-
-ai_response = ''
 
 app = Flask(__name__)
 #cors = CORS(app, origins='*')
@@ -16,7 +15,7 @@ UPLOAD_FOLDER = 'Uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Ensure the upload folder exists
+# check the upload folder exists
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
@@ -37,7 +36,7 @@ def users():
 
 @app.route("/api/data", methods=['POST', 'GET'])
 def handle_data():
-    data = request.get_json() # Access data sent from React
+    data = request.get_json() # get data sent from React
     print(f"Received data from React, in flask: {data}") # log
     return jsonify({'message': 'Data received successfully!'})
 
@@ -53,7 +52,7 @@ def upload_image():
         image_save_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(image_save_path)
         
-        send_image('/Users/hadrian/Developer/Python projects/Smart-expire/' + image_save_path) # Send image to OpenAI
+        send_image('/Users/hadrian/Developer/Python projects/Smart-expire/' + image_save_path) # send image to AI
 
         return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 200
     else:
@@ -65,9 +64,9 @@ def get_ai_response():
 
 @app.route("/api/login", methods=['POST', 'GET'])
 def handle_login_data():
-    data = request.get_json() # Access data sent from React
+    data = request.get_json() # get data sent from React
     print(f"Received data from React, in flask: {data}") # log
-    #process ie database, normally
+    #process database stuff
     return jsonify({'message': 'Data received successfully!'})
 
 if __name__ == "__main__":

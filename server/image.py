@@ -4,7 +4,8 @@ import base64
 import requests
 import os
 
-import main # Import main.py for variable reference
+# variables 
+ai_response = ""
 
 def send_image(image_path):
   # Point to the local server
@@ -51,4 +52,5 @@ def send_image(image_path):
   for chunk in completion:
     if chunk.choices[0].delta.content:
       print(chunk.choices[0].delta.content, end="", flush=True)
-      main.ai_response += chunk.choices[0].delta.content
+      global ai_response # making sure the variable is the global one
+      ai_response += chunk.choices[0].delta.content

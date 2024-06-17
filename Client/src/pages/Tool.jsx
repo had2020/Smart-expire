@@ -1,12 +1,12 @@
 import React from 'react';
 
-const ai_tool = () => {
+const Tool = () => {
   return (
     <div>
       <h1>Blank page!</h1>
-      <p>This is a blank page.</p>
+      <p>This is a blank page, for the Ai tool.</p>
     </div>
   );
 };
 
-export default ai_tool;
+export default Tool;

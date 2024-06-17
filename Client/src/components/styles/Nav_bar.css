@@ -1,0 +1,30 @@
+.nav-bar {
+  background-color: #1a1a1a;
+  padding: 0; /* Adjust padding */
+  display: flex;
+  justify-content: space-between; /* Space out links */
+  align-items: center;
+  height: 50px; 
+  position: fixed;
+  top: 0;
+  width: 50%; /* Set the width */
+  left: 50%; /* Move the left edge to the center */
+  transform: translateX(-50%); /* Offset by half of the width to center */
+}
+
+.nav-bar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-bar a:hover,
+.nav-bar a.active {
+  background-color: #333;
+  color: #ddd;
+}
+
+.nav-bar a:last-child {
+  border-right: none;
+}
