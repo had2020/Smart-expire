@@ -8,6 +8,8 @@ import ButtonComponent from '../components/ButtonComponent';
 import Upload_button from '../components/upload_button';
 import Nav_bar from '../components/Nav_bar';
 
+// styling
+import './styles/Home.css';
 const Home = () => {
   const flaskurl = FlaskAddress(); // adding global address for flask
   const [count, setCount] = useState(0);
@@ -15,24 +17,40 @@ const Home = () => {
   return (
     <>
       <Nav_bar></Nav_bar>
-      <h1>Smart Expire</h1>
-      <div className="card">
-        <button onClick={() => setCount(count + 1)}>
-          count is {count}
-        </button>
-      </div>
-      <p className="feel-at-home">
-        Welcome to Hadrian's site!
-      </p>
-      <div>
-        <ButtonComponent address_var={flaskurl} />
-      </div>
-      <div>
-        <h1>Send an Image</h1>
-        <Upload_button address_var={flaskurl} />
+      <div classname="front-page">
+        <h1>Smart Expire</h1>
+        <div class="ai-image-expiration-box">  <h2>🤖 The AI Image Expiration Tool</h2>
+          <p>
+            See when your food expires, based off your receipt. <br />
+            Can't remember the expiration date? <br />
+            Try our new list of your expiration dates. <br />
+            See if your food's expiration date is near. <br />
+            And best of all, set up alerts with our app and Chrome extension.
+          </p>
+          <p style={{ textAlign: 'center' }}><a href="/tool">Click here to get started</a></p>
+        </div>
+
+        <div>
+          <h2>Send an Image</h2>
+          <Upload_button address_var={flaskurl} />
+        </div>
       </div>
     </>
   );
 }
 
 export default Home;
+
+/* Todo: use navlink to make navbar and box1 button change based on login status and page status */
+
+/* old send data button code TODO: finish impementation in tool
+  <ButtonComponent address_var={flaskurl} />
+*/
+
+/* old react test button
+        <div className="card">
+          <button onClick={() => setCount(count + 1)}>
+            count is {count}
+          </button>
+        </div>
+*/

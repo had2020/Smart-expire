@@ -2,16 +2,14 @@ import React from 'react';
 import './styles/Nav_bar.css';
 
 const NavBar = () => {
+  /* ToDO : Make login href show account if logged in */
   return (
-    <nav className="nav-bar">
-      <a href="/">Home</a>
-      <a href="/tool">Tool</a>
-      <a href="/login">Login</a>
-      <a href="/signup">Signup</a>
-      <a href="/account">My Account</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact Me</a>
-    </nav>
+  <div class="topnav">
+    <a class="active" href="/">Home</a>
+    <a href="/tool">Tool</a>
+    <a href="/login">Login</a>
+    <a href="/contact">Contact</a>
+  </div>
   );
 };
 
