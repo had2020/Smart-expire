@@ -1,10 +1,14 @@
 import React from 'react';
 
+// components
+import Nav_bar from '../components/Nav_bar';
+
 const Signup = () => {
   return (
     <div>
-      <h1>Blank page!</h1>
-      <p>This is a blank page.</p>
+      <Nav_bar></Nav_bar>
+      <h1>Signup page!</h1>
+      <p>This is the signup page.</p>
     </div>
   );
 };

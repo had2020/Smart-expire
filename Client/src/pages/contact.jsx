@@ -3,14 +3,14 @@ import React from 'react';
 // components
 import Nav_bar from '../components/Nav_bar';
 
-const Login = () => {
+const Contact = () => {
   return (
     <div>
       <Nav_bar></Nav_bar>
-      <h1>Login page!</h1>
-      <p>This is the login page.</p>
+      <h1>Contact Page!</h1>
+      <p>This is the contact page.</p>
     </div>
   );
 };
 
-export default Login;
+export default Contact;
